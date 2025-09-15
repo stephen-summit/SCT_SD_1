@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>temperature converter</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <main class="card">
+    <h1>temperature converter</h1>
+    <p class="muted">convert between celsius, fahrenheit &amp; kelvin — responsive, validated &amp; friendly.</p>
+
+    <form id="conv-form" novalidate>
+      <label for="value">temperature</label>
+      <input id="value" name="value" inputmode="decimal" placeholder="enter numeric value" required>
+      <div class="row">
+        <div>
+          <label for="from_unit">from</label>
+          <select id="from_unit" name="from_unit">
+            <option value="c">celsius (°c)</option>
+            <option value="f">fahrenheit (°f)</option>
+            <option value="k">kelvin (k)</option>
+          </select>
+        </div>
+        <div>
+          <label for="to_unit">to</label>
+          <select id="to_unit" name="to_unit">
+            <option value="f">fahrenheit (°f)</option>
+            <option value="c">celsius (°c)</option>
+            <option value="k">kelvin (k)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="submit" id="convert-btn">convert</button>
+        <button type="button" id="swap-btn" title="swap units">↺ swap</button>
+      </div>
+    </form>
+
+    <div id="message" class="message" aria-live="polite"></div>
+    <div id="result" class="result" aria-live="polite"></div>
+
+    <footer class="foot">built with flask • client &amp; server validation • 12-week spirit (but simpler)</footer>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
